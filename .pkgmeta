@@ -1,0 +1,8 @@
+package-as: Rematch_Switcher
+
+externals:
+  # Libs/LibStub: https://repos.curseforge.com/wow/libstub/trunk
+
+ignore:
+  - babelfish_config.lua
+  - README.md
