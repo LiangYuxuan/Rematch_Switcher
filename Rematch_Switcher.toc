@@ -1,0 +1,22 @@
+## Interface: 100205
+## Title: Rematch Switcher
+## Notes: More options to load and switch between Rematch teams.
+## RequiredDeps: Rematch
+## Author: @project-author@
+## Version: @project-version@
+## SavedVariables: RematchSwitcherDB
+## IconTexture: Interface\AddOns\Rematch\textures\icon
+## X-ReleaseDate: @project-date-iso@
+## X-License: MIT
+## X-Curse-Project-ID:
+## X-WoWI-ID:
+## X-Wago-ID:
+
+Libs\Libs.xml
+
+Init.lua
+Locales\Locales.xml
+
+Core.lua
+
+Monitor.lua
