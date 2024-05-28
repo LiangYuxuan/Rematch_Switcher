@@ -123,9 +123,9 @@ local displaySlots = {
             local start, duration = GetSpellCooldown(125439)
             if start > 0 and duration > 0 then
                 local remaining = start + duration - GetTime()
-                return format('(|T133675:12|t %d) %02d:%02d', GetItemCount(86143), floor(remaining / 60), remaining % 60)
+                return format('(|T133675:12|t %d) %02d:%02d', C_Item.GetItemCount(86143), floor(remaining / 60), remaining % 60)
             else
-                return format('(|T133675:12|t %d) %s', GetItemCount(86143), READY)
+                return format('(|T133675:12|t %d) %s', C_Item.GetItemCount(86143), READY)
             end
         end,
     },
