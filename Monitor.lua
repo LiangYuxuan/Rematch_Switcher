@@ -225,6 +225,10 @@ function Monitor:OnPetBattleEnd()
         self.data.leaveBattleTime = GetTime()
 
         self:UpdateMonitorFrame()
+
+        if self.data.playerLevel > #experienceData then
+            self.frame:Hide()
+        end
     end
 end
 
