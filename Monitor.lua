@@ -6,6 +6,29 @@ local RS, Rematch, L = unpack((select(2, ...)))
 ---@field slotFrames SlotFrame[]
 local Monitor = {}
 
+-- Lua functions
+local _G = _G
+local ceil, floor, format, ipairs, min, sort = ceil, floor, format, ipairs, min, sort
+local strmatch, tinsert, tonumber, tremove = strmatch, tinsert, tonumber, tremove
+
+-- WoW API / Variables
+local C_Item_GetItemCount = C_Item.GetItemCount
+local C_PetBattles_IsInBattle = C_PetBattles.IsInBattle
+local C_UnitAuras_GetPlayerAuraBySpellID = C_UnitAuras.GetPlayerAuraBySpellID
+local CreateFrame = CreateFrame
+local GetSpellCooldown = GetSpellCooldown
+local GetTime = GetTime
+local UnitLevel = UnitLevel
+local UnitXP = UnitXP
+local UnitXPMax = UnitXPMax
+
+local CopyTable = CopyTable
+
+local GRAY_FONT_COLOR = GRAY_FONT_COLOR
+local GREEN_FONT_COLOR = GREEN_FONT_COLOR
+local READY = READY
+local UNKNOWN = UNKNOWN
+
 ---@class MonitorData
 ---@field playerLevel number
 ---@field playerXP number
@@ -111,8 +134,8 @@ local displaySlots = {
     {
         name = '经验加成',
         updateFunc = function()
-            local warModeText = (C_UnitAuras.GetPlayerAuraBySpellID(282559) and GREEN_FONT_COLOR or GRAY_FONT_COLOR):WrapTextInColorCode('战争模式')
-            local safariHatText = (C_UnitAuras.GetPlayerAuraBySpellID(158486) and GREEN_FONT_COLOR or GRAY_FONT_COLOR):WrapTextInColorCode('狩猎帽')
+            local warModeText = (C_UnitAuras_GetPlayerAuraBySpellID(282559) and GREEN_FONT_COLOR or GRAY_FONT_COLOR):WrapTextInColorCode('战争模式')
+            local safariHatText = (C_UnitAuras_GetPlayerAuraBySpellID(158486) and GREEN_FONT_COLOR or GRAY_FONT_COLOR):WrapTextInColorCode('狩猎帽')
             return format('%s %s', warModeText, safariHatText)
         end,
     },
@@ -123,9 +146,9 @@ local displaySlots = {
             local start, duration = GetSpellCooldown(125439)
             if start > 0 and duration > 0 then
                 local remaining = start + duration - GetTime()
-                return format('(|T133675:12|t %d) %02d:%02d', C_Item.GetItemCount(86143), floor(remaining / 60), remaining % 60)
+                return format('(|T133675:12|t %d) %02d:%02d', C_Item_GetItemCount(86143), floor(remaining / 60), remaining % 60)
             else
-                return format('(|T133675:12|t %d) %s', C_Item.GetItemCount(86143), READY)
+                return format('(|T133675:12|t %d) %s', C_Item_GetItemCount(86143), READY)
             end
         end,
     },
@@ -385,13 +408,13 @@ function Monitor:Initialize()
         playerLevel = UnitLevel('player'),
         playerXP = UnitXP('player'),
         playerXPMax = UnitXPMax('player'),
-        isInBattle = C_PetBattles.IsInBattle(),
+        isInBattle = C_PetBattles_IsInBattle(),
         gainExperienceTimes = {},
         gainExperienceMultiplier = 1,
     }
 
     self:CreateMonitorFrame()
-    self.frame:SetShown(C_PetBattles.IsInBattle())
+    self.frame:SetShown(self.data.isInBattle)
 
     if self.data.playerLevel > #experienceData then
         self:SetMaxLevelMonitorFrame()

@@ -5,6 +5,8 @@ local addon, Engine = ...
 local RS = {}
 
 -- Lua functions
+local _G = _G
+local format = format
 
 -- WoW API / Variables
 

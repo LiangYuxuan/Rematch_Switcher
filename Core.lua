@@ -3,6 +3,13 @@ local RS, Rematch, L = unpack((select(2, ...)))
 ---@class RematchSwitcherCore
 local Core = {}
 
+-- Lua functions
+local ipairs, select, tinsert = ipairs, select, tinsert
+
+-- WoW API / Variables
+local C_PetJournal_SetAbility = C_PetJournal.SetAbility
+local GetSpellCooldown = GetSpellCooldown
+
 ---@class PetPolicy
 ---@field noSearch boolean?
 ---@field preferMaxHealth boolean?
@@ -138,13 +145,13 @@ function Core:LoadTeam(teamID, pets)
 
         Rematch.loadouts:SlotPet(slot, petID)
         if ability1 then
-            C_PetJournal.SetAbility(slot, 1, ability1)
+            C_PetJournal_SetAbility(slot, 1, ability1)
         end
         if ability2 then
-            C_PetJournal.SetAbility(slot, 2, ability2)
+            C_PetJournal_SetAbility(slot, 2, ability2)
         end
         if ability3 then
-            C_PetJournal.SetAbility(slot, 3, ability3)
+            C_PetJournal_SetAbility(slot, 3, ability3)
         end
     end
 
