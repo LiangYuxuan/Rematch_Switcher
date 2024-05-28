@@ -157,6 +157,7 @@ end
 ---@param teamID string
 function Core:IsTeamValid(teamID)
     for slot = 1, 3 do
+        -- TODO: support random & leveling pets
         local petID = Rematch.savedTeams[teamID].pets[slot]
         if not petID then
             return false
