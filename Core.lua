@@ -4,11 +4,11 @@ local RS, Rematch, L = unpack((select(2, ...)))
 local Core = {}
 
 -- Lua functions
-local ipairs, select, tinsert = ipairs, select, tinsert
+local ipairs, tinsert = ipairs, tinsert
 
 -- WoW API / Variables
 local C_PetJournal_SetAbility = C_PetJournal.SetAbility
-local GetSpellCooldown = GetSpellCooldown
+local C_Spell_GetSpellCooldown = C_Spell.GetSpellCooldown
 
 ---@class PetPolicy
 ---@field noSearch boolean?
@@ -183,7 +183,8 @@ function Core:OnTargetChanged()
     local teams, index = Rematch.savedTargets:GetTeams(npcID)
     if not teams then return end
 
-    if select(2, GetSpellCooldown(125439)) == 0 then
+    local cooldownInfo = C_Spell_GetSpellCooldown(125439)
+    if cooldownInfo and cooldownInfo.duration == 0 then
         RS:Print("复活战斗宠物准备就绪")
         -- Revive Battle Pets is ready
         for _, teamID in ipairs(teams) do

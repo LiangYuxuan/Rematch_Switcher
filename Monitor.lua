@@ -14,9 +14,9 @@ local strmatch, tinsert, tonumber, tremove = strmatch, tinsert, tonumber, tremov
 -- WoW API / Variables
 local C_Item_GetItemCount = C_Item.GetItemCount
 local C_PetBattles_IsInBattle = C_PetBattles.IsInBattle
+local C_Spell_GetSpellCooldown = C_Spell.GetSpellCooldown
 local C_UnitAuras_GetPlayerAuraBySpellID = C_UnitAuras.GetPlayerAuraBySpellID
 local CreateFrame = CreateFrame
-local GetSpellCooldown = GetSpellCooldown
 local GetTime = GetTime
 local UnitLevel = UnitLevel
 local UnitXP = UnitXP
@@ -143,9 +143,9 @@ local displaySlots = {
         name = '治疗宠物',
         onUpdate = true,
         updateFunc = function()
-            local start, duration = GetSpellCooldown(125439)
-            if start > 0 and duration > 0 then
-                local remaining = start + duration - GetTime()
+            local cooldownInfo = C_Spell_GetSpellCooldown(125439)
+            if cooldownInfo and cooldownInfo.start > 0 and cooldownInfo.duration > 0 then
+                local remaining = cooldownInfo.start + cooldownInfo.duration - GetTime()
                 return format('(|T133675:12|t %d) %02d:%02d', C_Item_GetItemCount(86143), floor(remaining / 60), remaining % 60)
             else
                 return format('(|T133675:12|t %d) %s', C_Item_GetItemCount(86143), READY)
