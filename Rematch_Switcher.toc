@@ -20,3 +20,5 @@ Locales\Locales.xml
 Core.lua
 
 Monitor.lua
+
+Leveling.lua
