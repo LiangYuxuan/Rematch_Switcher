@@ -154,8 +154,8 @@ local displaySlots = {
         onUpdate = true,
         updateFunc = function()
             local cooldownInfo = C_Spell_GetSpellCooldown(125439)
-            if cooldownInfo and cooldownInfo.start > 0 and cooldownInfo.duration > 0 then
-                local remaining = cooldownInfo.start + cooldownInfo.duration - GetTime()
+            if cooldownInfo and cooldownInfo.startTime > 0 and cooldownInfo.duration > 0 then
+                local remaining = cooldownInfo.startTime + cooldownInfo.duration - GetTime()
                 return format('(|T133675:12|t %d) %02d:%02d', C_Item_GetItemCount(86143), floor(remaining / 60), remaining % 60)
             else
                 return format('(|T133675:12|t %d) %s', C_Item_GetItemCount(86143), READY)
