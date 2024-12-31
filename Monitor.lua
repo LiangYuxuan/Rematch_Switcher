@@ -129,7 +129,7 @@ local experienceData = {
 ---@type { name: string, onUpdate: boolean?, hideMaxLevel: boolean, updateFunc: fun(): string }[]
 local displaySlots = {
     {
-        name = '战斗时间',
+        name = "战斗时间",
         onUpdate = true,
         updateFunc = function()
             if Monitor.data.isInBattle and Monitor.data.enterBattleTime then
@@ -142,15 +142,15 @@ local displaySlots = {
         end,
     },
     {
-        name = '经验加成',
+        name = "经验加成",
         updateFunc = function()
-            local warModeText = (C_UnitAuras_GetPlayerAuraBySpellID(282559) and GREEN_FONT_COLOR or GRAY_FONT_COLOR):WrapTextInColorCode('战争模式')
-            local safariHatText = (C_UnitAuras_GetPlayerAuraBySpellID(158486) and GREEN_FONT_COLOR or GRAY_FONT_COLOR):WrapTextInColorCode('狩猎帽')
+            local warModeText = (C_UnitAuras_GetPlayerAuraBySpellID(282559) and GREEN_FONT_COLOR or GRAY_FONT_COLOR):WrapTextInColorCode("战争模式")
+            local safariHatText = (C_UnitAuras_GetPlayerAuraBySpellID(158486) and GREEN_FONT_COLOR or GRAY_FONT_COLOR):WrapTextInColorCode("狩猎帽")
             return format('%s %s', warModeText, safariHatText)
         end,
     },
     {
-        name = '治疗宠物',
+        name = "治疗宠物",
         onUpdate = true,
         updateFunc = function()
             local cooldownInfo = C_Spell_GetSpellCooldown(125439)
@@ -163,20 +163,20 @@ local displaySlots = {
         end,
     },
     {
-        name = '升级队列',
+        name = "升级队列",
         updateFunc = function()
             return format('%d', #Rematch.settings.LevelingQueue)
         end,
     },
     {
-        name = '玩家等级',
+        name = "玩家等级",
         hideMaxLevel = true,
         updateFunc = function()
             return format('%d (%.2f%%)', Monitor.data.playerLevel, Monitor.data.playerXP / Monitor.data.playerXPMax * 100)
         end,
     },
     {
-        name = '经验获取',
+        name = "经验获取",
         hideMaxLevel = true,
         updateFunc = function()
             if not Monitor.data.gainExperienceValue then
@@ -187,14 +187,14 @@ local displaySlots = {
         end,
     },
     {
-        name = '经验间隔',
+        name = "经验间隔",
         hideMaxLevel = true,
         updateFunc = function()
             return Monitor.data.gainExperienceTimeMedian and format('%d', Monitor.data.gainExperienceTimeMedian) or UNKNOWN
         end,
     },
     {
-        name = '升级时间',
+        name = "升级时间",
         onUpdate = true,
         hideMaxLevel = true,
         updateFunc = function()
@@ -209,7 +209,7 @@ local displaySlots = {
         end,
     },
     {
-        name = '满级时间',
+        name = "满级时间",
         onUpdate = true,
         hideMaxLevel = true,
         updateFunc = function()
