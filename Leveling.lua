@@ -253,7 +253,7 @@ function Leveling:UpdateZone(event)
 end
 
 function Leveling:Initialize()
-    local macroButton = CreateFrame('Button', 'RhythmBoxPLHMacro', _G.UIParent, 'BackdropTemplate,SecureActionButtonTemplate')
+    local macroButton = CreateFrame('Button', 'RhythmBoxPLHMacro', _G.UIParent, 'SecureActionButtonTemplate')
     ---@cast macroButton Frame
     macroButton:EnableMouse(true)
     macroButton:RegisterForClicks('AnyUp', 'AnyDown')
@@ -261,7 +261,7 @@ function Leveling:Initialize()
     self.macroButton = macroButton
 
     ---@class PetLevelHelperDisplayButton: Button
-    local display = CreateFrame('Button', nil, _G.UIParent)
+    local display = CreateFrame('Button', nil, _G.UIParent, 'BackdropTemplate')
     display:ClearAllPoints()
     display:SetPoint('CENTER', -300, -350)
     display:SetSize(64, 64)
