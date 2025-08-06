@@ -1,4 +1,4 @@
-## Interface: 110100
+## Interface: 110200
 ## Title: Rematch Switcher
 ## Notes: More options to load and switch between Rematch teams.
 ## RequiredDeps: Rematch
