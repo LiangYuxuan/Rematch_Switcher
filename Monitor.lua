@@ -44,6 +44,7 @@ local UNKNOWN = UNKNOWN
 ---@field predictLevelUpCount number?
 ---@field predictMaxLevelCount number?
 
+---AUTO_GENERATED LEADING ExperienceData
 local experienceData = {
     { battleXP = 170, totalXP = 250 },
     { battleXP = 240, totalXP = 595 },
@@ -125,6 +126,7 @@ local experienceData = {
     { battleXP = 5900, totalXP = 418405 },
     { battleXP = 6100, totalXP = 445000 },
 }
+---AUTO_GENERATED TAILING ExperienceData
 
 ---@type { name: string, onUpdate: boolean?, hideMaxLevel: boolean, updateFunc: fun(): string }[]
 local displaySlots = {

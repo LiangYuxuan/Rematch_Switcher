@@ -1,0 +1,24 @@
+{
+  "name": "rematch-switcher-builder",
+  "type": "module",
+  "private": true,
+  "author": "Rhythm",
+  "scripts": {
+    "build": "tsc --project ./",
+    "start": "tsx src/index.ts",
+    "start:force": "tsx src/index.ts --force",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@rhyster/eslint-config": "^1.8.24",
+    "@types/node": "^24.10.4",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@rhyster/wow-casc-dbc": "^2.11.52",
+    "tsx": "^4.21.0"
+  },
+  "packageManager": "pnpm@10.26.2"
+}

@@ -4,5 +4,6 @@ externals:
   # Libs/LibStub: https://repos.curseforge.com/wow/libstub/trunk
 
 ignore:
+  - Builder
   - babelfish_config.lua
   - README.md

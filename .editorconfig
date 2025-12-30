@@ -11,5 +11,8 @@ insert_final_newline = true
 [{*.xml,.luacheckrc,.luacheckrc_header}]
 indent_style = tab
 
-[{*.pkgmeta,*.yml}]
+[*.pkgmeta]
+indent_size = 2
+
+[{package.json,package-lock.json,*.yml,*.yaml}]
 indent_size = 2
