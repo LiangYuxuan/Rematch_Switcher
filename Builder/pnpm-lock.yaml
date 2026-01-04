@@ -9,15 +9,15 @@ importers:
   .:
     dependencies:
       '@rhyster/wow-casc-dbc':
-        specifier: ^2.11.52
-        version: 2.11.52
+        specifier: ^2.11.54
+        version: 2.11.54
       tsx:
         specifier: ^4.21.0
         version: 4.21.0
     devDependencies:
       '@rhyster/eslint-config':
-        specifier: ^1.8.24
-        version: 1.8.24(@typescript-eslint/parser@8.51.0(eslint@9.39.2)(typescript@5.9.3))(@typescript-eslint/utils@8.51.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)
+        specifier: ^1.8.26
+        version: 1.8.26(@typescript-eslint/parser@8.51.0(eslint@9.39.2)(typescript@5.9.3))(@typescript-eslint/utils@8.51.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)
       '@types/node':
         specifier: ^24.10.4
         version: 24.10.4
@@ -260,13 +260,13 @@ packages:
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
-  '@rhyster/eslint-config@1.8.24':
-    resolution: {integrity: sha512-R2I9EctFWSkxqSJYAa7bcxj/LoPo9sqTv4NlZ2vOBSY6RzKzy2N2vWNC75C9dA4iaOtHjN6w4P2m8EHSTL2YmA==}
+  '@rhyster/eslint-config@1.8.26':
+    resolution: {integrity: sha512-4BcflIqV6agc+T5lfDyGTVFaUIdrmV8DGMmHBQCIEk5RQ2n5lyhreeRswqTHG5fmxVHLJdrNJwsUzA1Gb469hA==}
     peerDependencies:
       eslint: '>= 9'
 
-  '@rhyster/wow-casc-dbc@2.11.52':
-    resolution: {integrity: sha512-h4I6y/ydsBaQT+/8+X+2OVsRKLjCnF2LqXJm5m40t6CBWQAFKYf+IUOZCgGXNBUCWydvcVgudTnK7nt3/TqBSA==}
+  '@rhyster/wow-casc-dbc@2.11.54':
+    resolution: {integrity: sha512-4OGv+r3+sFkyKrk/1M9xtf9OVZkAC+ZN1IBx2EfISJlaGDUsZXUqtCXjGUBfugVnTw1jVui2mMVwv8b+AJksjw==}
 
   '@stylistic/eslint-plugin@5.6.1':
     resolution: {integrity: sha512-JCs+MqoXfXrRPGbGmho/zGS/jMcn3ieKl/A8YImqib76C8kjgZwq5uUFzc30lJkMvcchuRn6/v8IApLxli3Jyw==}
@@ -707,8 +707,8 @@ packages:
     resolution: {integrity: sha512-7ACyT3wmyp3I61S4fG682L0VA2RGD9otkqGJIwNUMF1SWUombIIk+af1unuDYgMm082aHYwD+mzJvv9Iu8dsgg==}
     engines: {node: '>=18'}
 
-  globals@16.5.0:
-    resolution: {integrity: sha512-c/c15i26VrJ4IRt5Z89DnIzCGDn9EcebibhAOjw5ibqEHsE1wLUgkPn9RDmNcUKyU87GeaL633nyJ+pplFR2ZQ==}
+  globals@17.0.0:
+    resolution: {integrity: sha512-gv5BeD2EssA793rlFWVPMMCqefTlpusw6/2TbAVMy0FzcG8wKJn4O+NqJ4+XWmmwrayJgw5TzrmWjFgmz1XPqw==}
     engines: {node: '>=18'}
 
   globrex@0.1.2:
@@ -1131,7 +1131,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@rhyster/eslint-config@1.8.24(@typescript-eslint/parser@8.51.0(eslint@9.39.2)(typescript@5.9.3))(@typescript-eslint/utils@8.51.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)':
+  '@rhyster/eslint-config@1.8.26(@typescript-eslint/parser@8.51.0(eslint@9.39.2)(typescript@5.9.3))(@typescript-eslint/utils@8.51.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)':
     dependencies:
       '@eslint/js': 9.39.2
       '@stylistic/eslint-plugin': 5.6.1(eslint@9.39.2)
@@ -1141,7 +1141,7 @@ snapshots:
       eslint-plugin-import-x: 4.16.1(@typescript-eslint/utils@8.51.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)
       eslint-plugin-n: 17.23.1(eslint@9.39.2)(typescript@5.9.3)
       eslint-plugin-vue: 10.6.2(@stylistic/eslint-plugin@5.6.1(eslint@9.39.2))(@typescript-eslint/parser@8.51.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(vue-eslint-parser@10.2.0(eslint@9.39.2))
-      globals: 16.5.0
+      globals: 17.0.0
       typescript-eslint: 8.51.0(eslint@9.39.2)(typescript@5.9.3)
       vue-eslint-parser: 10.2.0(eslint@9.39.2)
     transitivePeerDependencies:
@@ -1152,7 +1152,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@rhyster/wow-casc-dbc@2.11.52':
+  '@rhyster/wow-casc-dbc@2.11.54':
     dependencies:
       async: 3.2.6
       cli-progress: 3.12.0
@@ -1628,7 +1628,7 @@ snapshots:
 
   globals@15.15.0: {}
 
-  globals@16.5.0: {}
+  globals@17.0.0: {}
 
   globrex@0.1.2: {}
 
