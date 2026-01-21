@@ -124,7 +124,17 @@ local experienceData = {
     { battleXP = 5250, totalXP = 69130 },
     { battleXP = 5300, totalXP = 70965 },
     { battleXP = 5350, totalXP = 72820 },
-    { battleXP = 6100, totalXP = 74700 },
+    { battleXP = 5900, totalXP = 74700 },
+    { battleXP = 5950, totalXP = 403725 },
+    { battleXP = 6000, totalXP = 423390 },
+    { battleXP = 6100, totalXP = 443395 },
+    { battleXP = 6150, totalXP = 463740 },
+    { battleXP = 6200, totalXP = 484430 },
+    { battleXP = 6300, totalXP = 505455 },
+    { battleXP = 6350, totalXP = 526825 },
+    { battleXP = 6450, totalXP = 548535 },
+    { battleXP = 6500, totalXP = 570590 },
+    { battleXP = 6850, totalXP = 592980 },
 }
 ---AUTO_GENERATED TAILING ExperienceData
 
