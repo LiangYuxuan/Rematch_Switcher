@@ -206,15 +206,9 @@ function Leveling:Toggle()
     end
 end
 
-function Leveling:UpdateZone(event)
+function Leveling:UpdateZone()
     if InCombatLockdown() then
         return
-    end
-
-    if event == 'PLAYER_ENTERING_WORLD' then
-        SetCVar('autoInteract', '0')
-        SetCVar('SoftTargetInteract', '1')
-        SetCVar('SoftTargetInteractArc', '0')
     end
 
     local uiMapID = C_Map_GetBestMapForUnit('player')
