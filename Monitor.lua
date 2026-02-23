@@ -279,7 +279,7 @@ function Monitor:OnPetBattleEnd()
 
         self:UpdateMonitorFrame()
 
-        if self.data.playerLevel > #experienceData then
+        if self.data.playerLevel >= RS.maxLevel then
             self.frame:Hide()
         end
     end
@@ -299,7 +299,7 @@ do
             self.data.playerXP = self.data.playerXP + experience
             if self.data.playerXP >= self.data.playerXPMax then
                 self.data.playerLevel = self.data.playerLevel + 1
-                if self.data.playerLevel > #experienceData then
+                if self.data.playerLevel >= RS.maxLevel then
                     self.data.playerXP = 0
                     self.data.playerXPMax = 100000000
                 else
@@ -353,7 +353,7 @@ function Monitor:OnExperienceUpdate()
     local playerXP = UnitXP('player')
     local playerXPMax = UnitXPMax('player')
 
-    if playerLevel > #experienceData then
+    if playerLevel >= RS.maxLevel then
         self:SetMaxLevelMonitorFrame()
     end
 
@@ -374,7 +374,7 @@ end
 function Monitor:UpdateExperiencePrediction()
     if not self.data.gainExperienceTimeMedian then return end
 
-    if self.data.playerLevel > #experienceData then
+    if self.data.playerLevel >= RS.maxLevel then
         self.data.predictLevelUpCount = 0
         self.data.predictMaxLevelCount = 0
         return
@@ -387,7 +387,7 @@ function Monitor:UpdateExperiencePrediction()
 
     local currentXP = self.data.playerXP
     local predictMaxLevelCount = 0
-    for level = self.data.playerLevel, #experienceData do
+    for level = self.data.playerLevel, RS.maxLevel - 1 do
         local remaining = experienceData[level].totalXP - currentXP
         local experience = experienceData[level].battleXP * self.data.gainExperienceMultiplier
         local count = ceil(remaining / experience)
@@ -446,7 +446,7 @@ function Monitor:Initialize()
     self:CreateMonitorFrame()
     self.frame:SetShown(self.data.isInBattle)
 
-    if self.data.playerLevel > #experienceData then
+    if self.data.playerLevel >= RS.maxLevel then
         self:SetMaxLevelMonitorFrame()
     end
 

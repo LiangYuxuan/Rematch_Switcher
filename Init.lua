@@ -2,6 +2,8 @@
 local addon, Engine = ...
 ---@class RematchSwitcher
 ---@field teamPolicy table<string, TeamPolicy?>
+---@field useMaxLevelCap boolean
+---@field maxLevel number
 local RS = {}
 
 -- Lua functions
@@ -45,6 +47,9 @@ function RS:Initialize()
     end
 
     self.teamPolicy = RematchSwitcherDB.teamPolicy
+
+    self.useMaxLevelCap = false
+    self.maxLevel = not self.useMaxLevelCap and GetMaxLevelForPlayerExpansion() or 30
 end
 
 Rematch.events:Register(RS, 'PLAYER_LOGIN', RS.Initialize)

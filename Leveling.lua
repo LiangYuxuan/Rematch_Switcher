@@ -311,6 +311,14 @@ function Leveling:Initialize()
     Rematch.events:Register(Leveling, 'PLAYER_ENTERING_WORLD', Leveling.UpdateZone)
     Rematch.events:Register(Leveling, 'ZONE_CHANGED_NEW_AREA', Leveling.UpdateZone)
     Rematch.events:Register(Leveling, 'PLAYER_REGEN_ENABLED', Leveling.UpdateZone)
+
+    if RS.useMaxLevelCap then
+        Rematch.events:Register(Leveling, 'PLAYER_LEVEL_UP', function(_, level)
+            if level >= RS.maxLevel and self.enabled then
+                self:Toggle()
+            end
+        end)
+    end
 end
 
 Rematch.events:Register(Leveling, 'PLAYER_LOGIN', Leveling.Initialize)
