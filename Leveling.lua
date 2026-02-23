@@ -54,7 +54,6 @@ local targetMacroTemplate = '/target %s'
 local selectOptionMacro = '/run C_GossipInfo.SelectOptionByIndex(1)'
 
 local spellName
-local maxLevel = GetMaxLevelForPlayerExpansion()
 local preferTargetIndex = 0
 local useSoftTarget = false
 
@@ -216,7 +215,7 @@ function Leveling:UpdateZone()
         preferTargetIndex = 0
         self.displayButton:Show()
 
-        if UnitLevel('player') < maxLevel then
+        if UnitLevel('player') < RS.maxLevel then
             -- Player Leveling: default to enable
             self:EnableHelper()
             self.enabled = true

@@ -11,6 +11,7 @@ local _G = _G
 local format = format
 
 -- WoW API / Variables
+local GetMaxLevelForPlayerExpansion = GetMaxLevelForPlayerExpansion
 
 -- GLOBALS: RematchSwitcherDB
 
