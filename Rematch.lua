@@ -2,6 +2,7 @@
 
 ---@class Rematch
 ---@field altInfo RematchPetInfo
+---@field badges RematchBadge
 ---@field events RematchEvent
 ---@field interact RematchInteract
 ---@field loadouts RematchPetLoadouts
@@ -385,3 +386,7 @@
 ---@field vulnerableVs integer the petType of attack that this pet takes increased damage from
 ---@field formattedName string name of pet with color codes for its rarity
 ---@field isStickied boolean whether the pet is temporarily stickied to top of pet list (wrapped)
+
+---@class RematchBadge
+---@field RegisterBadge fun(self: RematchBadge, list: 'pets' | 'teams' | 'targets' | 'groups', name: string, icon: string | number | (fun(): string | number), coords: [number, number, number, number] | (fun(): [number, number, number, number]) | nil, callback: fun(): boolean): nil
+---@field UnregisterBadge fun(self: RematchBadge, list: 'pets' | 'teams' | 'targets' | 'groups', name: string, noUpdate: boolean): nil

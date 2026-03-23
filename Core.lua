@@ -242,6 +242,10 @@ function Core:Initialize()
     Rematch.interact.PLAYER_SOFT_INTERACT_CHANGED = noop
 
     Rematch.events:Register(self, 'PLAYER_TARGET_CHANGED', self.OnTargetChanged)
+
+    Rematch.badges:RegisterBadge('teams', 'RSTeamHasPetPolicy', 133015, {0.1, 0.9, 0.1, 0.9}, function(_, teamID)
+        return not not RS.teamPolicy[teamID]
+    end)
 end
 
 Rematch.events:Register(Core, 'PLAYER_LOGIN', Core.Initialize)
