@@ -29,18 +29,18 @@ const currBuild = latestVersion.version.BuildId;
 assert(currBuild, 'Failed to get current build number');
 
 if (process.argv[2] !== '--force' && prevBuild === currBuild) {
-    console.info(new Date().toISOString(), `[INFO]: Build ${currBuild} is up to date`);
+    console.info(Temporal.Now.instant().toString(), `[INFO]: Build ${currBuild} is up to date`);
     process.exit(0);
 }
 
 const client = new CASCClient('us', latestVersion.product, latestVersion.version);
 await client.init();
 
-console.info(new Date().toISOString(), '[INFO]: Loading remote TACT keys');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Loading remote TACT keys');
 await client.loadRemoteTACTKeys();
-console.info(new Date().toISOString(), '[INFO]: Loaded remote TACT keys');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Loaded remote TACT keys');
 
-console.info(new Date().toISOString(), '[INFO]: Loading files');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Loading files');
 const xpCKeys = client.getContentKeysByFileDataID(1391661); // gametables/xp.txt
 assert(xpCKeys && xpCKeys.length > 0, 'No cKeys found for file gametables/xp.txt (1391661)');
 
@@ -53,9 +53,9 @@ const questXPData = await client.getFileByContentKey(questXPCKeys[0].cKey);
 
 const questXPReader = new WDCReader(questXPData.buffer, questXPData.blocks);
 const questXPParser = await DBDParser.parse(questXPReader);
-console.info(new Date().toISOString(), '[INFO]: Loaded files');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Loaded files');
 
-console.info(new Date().toISOString(), '[INFO]: Parsing files');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Parsing files');
 const xpLines = xpData.buffer.toString('utf-8').split('\n').map((line) => line.trim()).filter((line) => line.length > 0);
 assert(xpLines[0] === 'Level\tTotal\tPerKill\tJunk\tStats\tDivisor', 'Unexpected header in xp.txt');
 
@@ -112,9 +112,9 @@ for (let level = 1; level < maxLevel; level += 1) {
         });
     }
 }
-console.info(new Date().toISOString(), '[INFO]: Parsed files');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Parsed files');
 
-console.info(new Date().toISOString(), '[INFO]: Updating addon file');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Updating addon file');
 const outputDataText = `local experienceData = {\n${outputData.map(({ battleXP, totalXP }) => `    { battleXP = ${battleXP.toString()}, totalXP = ${totalXP.toString()} },`).join('\n')}\n}`;
 
 const root = path.resolve(fileURLToPath(import.meta.url), '..', '..', '..');
@@ -122,7 +122,7 @@ const monitorFile = path.join(root, 'Monitor.lua');
 const monitorFileText = await fs.readFile(monitorFile, 'utf-8');
 const updatedMonitorFileText = monitorFileText.replace(/(?<=---AUTO_GENERATED LEADING ExperienceData\r?\n)((.|\r|\n)*)(?=\r?\n---AUTO_GENERATED TAILING ExperienceData)/g, outputDataText);
 await fs.writeFile(monitorFile, updatedMonitorFileText);
-console.info(new Date().toISOString(), '[INFO]: Updated addon file');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Updated addon file');
 
 await fs.writeFile('buildInfo.txt', currBuild);
 
